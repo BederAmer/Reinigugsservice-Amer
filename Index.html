@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reinigungsservice - Amer</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 50%;
+            max-width: 600px;
+            margin: 10% auto;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-content h2 {
+            color: #007f4f;
+            text-align: center;
+        }
+
+        .close {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .footer-button {
+            background-color: #ffcc00;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .footer-button:hover {
+            background-color: #ffb700;
+        }
+
+        /* Scrollable Modal Content */
+        .modal-content-scroll {
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="logo">
+            <img src="LOGOfinal.png" alt="Reinigungsservice - Amer">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#anfrage">Anfrage</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home -->
+    <section id="home">
+        <h1>Unsere Dienstleistungen</h1>
+        <p>Reinigungsservice - Amer bietet eine breite Palette professioneller Reinigungsdienstleistungen für verschiedene Branchen. Wir kümmern uns um die Sauberkeit und Hygiene von Kitas, Restaurants, Büros, Treppenhäusern und vielem mehr.</p>
+        
+        <div class="dienstleistungen">
+            <div class="dienstleistung">
+                <h2>Unterhaltsreinigung für Kitas</h2>
+                <img src="kita_reinigung.jpg" alt="Kita Reinigung">
+                <p>Wir bieten professionelle Unterhaltsreinigung für Kitas, damit Ihr Raum immer hygienisch und sicher für die Kinder ist.</p>
+            </div>
+            <div class="dienstleistung">
+                <h2>Reinigung von Restaurants</h2>
+                <img src="restaurant_reinigung.jpg" alt="Restaurant Reinigung">
+                <p>Unsere Reinigung sorgt für ein sauberes und einladendes Ambiente für Ihre Gäste.</p>
+            </div>
+            <div class="dienstleistung">
+                <h2>Büroreinigung</h2>
+                <img src="buero_reinigung.jpg" alt="Büroreinigung">
+                <p>Saubere Büros fördern Produktivität und Wohlbefinden – wir sorgen dafür, dass Ihr Arbeitsplatz immer blitzsauber ist.</p>
+            </div>
+            <div class="dienstleistung">
+                <h2>Treppenhausreinigung</h2>
+                <img src="treppenhaus_reinigung.jpg" alt="Treppenhaus Reinigung">
+                <p>Wir kümmern uns um die regelmäßige und gründliche Reinigung von Treppenhäusern und Fluren, sodass Ihr Gebäude stets gepflegt aussieht.</p>
+            </div>
+        </div>
+
+        <a href="#anfrage" class="cta-button">Jetzt Anfrage stellen</a>
+    </section>
+
+    <!-- Anfrageformular -->
+    <section id="anfrage">
+        <h1>Anfrage für ein Angebot</h1>
+        <form action="https://formspree.io/f/mdkadyre" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">E-Mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="dienstleistung">Gewünschte Dienstleistung:</label>
+            <select id="dienstleistung" name="dienstleistung" required>
+                <option value="kita">Kita</option>
+                <option value="restaurant">Restaurant</option>
+                <option value="buero">Büro</option>
+                <option value="treppenhaus">Treppenhaus</option>
+                <option value="andere">Andere</option>
+            </select>
+
+            <label for="nachricht">Nachricht:</label>
+            <textarea id="nachricht" name="nachricht" required></textarea>
+
+            <button type="submit">Anfrage senden</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Reinigungsservice - Amer</p>
+        <span class="footer-button" onclick="openModal()">Impressum</span>
+        <span class="footer-button" onclick="openDatenschutzModal()">Datenschutzerklärung</span>
+        <span class="footer-button" onclick="openAGBModal()">AGB</span>
+    </footer>
+
+    <!-- Modal für Impressum -->
+    <div id="impressumModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Impressum</h2>
+            <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+            <p><strong>Reinigungsservice - Amer</strong><br>
+            Beder Amer<br>
+            Saatwinkler Damm 123<br>
+            13629 Berlin<br></p>
+
+            <p><strong>Kontakt:</strong><br>
+            Telefon: <a href="tel:+4915560762603">+49 1556 0762603</a><br>
+            E-Mail: <a href="mailto:reinigungsserviceamer@gmail.com">reinigungsserviceamer@gmail.com</a></p>
+
+            <p><strong>Umsatzsteuer-Identifikationsnummer:</strong><br>
+            Entfällt (Kleinunternehmer nach § 19 UStG)</p>
+
+            <p><strong>Verantwortlich für den Inhalt:</strong><br>
+            Beder Amer</p>
+        </div>
+    </div>
+
+    <!-- Modal für Datenschutzerklärung -->
+    <div id="datenschutzModal" class="modal">
+        <div class="modal-content modal-content-scroll">
+            <span class="close" onclick="closeDatenschutzModal()">&times;</span>
+            <h2>Datenschutzerklärung</h2>
+            <p>Der Schutz Ihrer persönlichen Daten ist uns sehr wichtig. Wir verarbeiten Ihre Daten ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TMG). In dieser Datenschutzerklärung informieren wir Sie über die wichtigsten Aspekte der Datenverarbeitung im Rahmen der Nutzung unserer Website.</p>
+
+            <h3>1. Verantwortlicher</h3>
+            <p>Verantwortlicher für die Datenverarbeitung auf dieser Website ist:</p>
+            <p><strong>Reinigungsservice - Amer</strong><br>
+            Beder Amer<br>
+            Saatwinkler Damm 123<br>
+            13629 Berlin<br>
+            Telefon: <a href="tel:+4915560762603">+49 1556 0762603</a><br>
+            E-Mail: <a href="mailto:reinigungsserviceamer@gmail.com">reinigungsserviceamer@gmail.com</a></p>
+
+            <h3>2. Erhebung und Speicherung personenbezogener Daten</h3>
+            <p>Wenn Sie unsere Website besuchen, werden automatisch Informationen in sogenannten Server-Logfiles gespeichert, die Ihr Browser an uns übermittelt. Dies sind:</p>
+            <ul>
+                <li>IP-Adresse</li>
+                <li>Browsertyp und -version</li>
+                <li>Referrer-URL</li>
+                <li>Datum und Uhrzeit der Serveranfrage</li>
+                <li>Zeitzonendifferenz zur Greenwich Mean Time (GMT)</li>
+                <li>Inhalt der Anforderung (konkrete Seite)</li>
+                <li>Zugriffsstatus/HTTP-Statuscode</li>
+                <li>Menge der jeweils übertragenen Daten</li>
+            </ul>
+            <p>Diese Daten werden ausschließlich zur Sicherstellung der Funktionsfähigkeit unserer Website verwendet und ermöglichen keine Rückschlüsse auf eine bestimmte Person.</p>
+
+            <h3>3. Zweck der Verarbeitung</h3>
+            <p>Die von uns erhobenen Daten dienen folgenden Zwecken:</p>
+            <ul>
+                <li>Bereitstellung der Website</li>
+                <li>Optimierung der Website</li>
+                <li>Sicherstellung der IT-Sicherheit</li>
+            </ul>
+
+            <h3>4. Cookies</h3>
+            <p>Unsere Website verwendet Cookies, um das Nutzererlebnis zu verbessern. Cookies sind kleine Textdateien, die auf Ihrem Gerät gespeichert werden und es uns ermöglichen, die Website an Ihre Bedürfnisse anzupassen. Sie können das Setzen von Cookies in den Einstellungen Ihres Browsers deaktivieren, aber beachten Sie bitte, dass dann gegebenenfalls nicht alle Funktionen der Website vollumfänglich genutzt werden können.</p>
+
+            <h3>5. Kontaktformular</h3>
+            <p>Wenn Sie über das Kontaktformular auf unserer Website Anfragen stellen, werden die dort angegebenen Daten (Name, E-Mail-Adresse, Nachricht) zur Bearbeitung Ihrer Anfrage verarbeitet. Diese Daten werden nicht an Dritte weitergegeben und dienen ausschließlich der Kommunikation mit Ihnen.</p>
+
+            <h3>6. Datenweitergabe an Dritte</h3>
+            <p>Eine Weitergabe Ihrer personenbezogenen Daten an Dritte erfolgt nur, wenn dies gesetzlich erlaubt ist oder Sie ausdrücklich eingewilligt haben. Eine Weitergabe Ihrer Daten an Dritte zu Werbezwecken findet nicht statt.</p>
+
+            <h3>7. Speicherdauer</h3>
+            <p>Wir speichern Ihre personenbezogenen Daten nur so lange, wie es für die Erfüllung des Zwecks erforderlich ist oder gesetzliche Aufbewahrungsfristen dies vorschreiben. Danach werden Ihre Daten gelöscht oder anonymisiert.</p>
+
+            <h3>8. Ihre Rechte</h3>
+            <p>Sie haben jederzeit das Recht, auf Ihre bei uns gespeicherten personenbezogenen Daten zuzugreifen, diese zu berichtigen oder löschen zu lassen, sowie Ihre Einwilligung zur Datenverarbeitung zu widerrufen. Außerdem haben Sie das Recht, der Verarbeitung Ihrer Daten zu widersprechen.</p>
+            <p>Zur Ausübung Ihrer Rechte wenden Sie sich bitte an:</p>
+            <p><strong>Reinigungsservice - Amer</strong><br>
+            E-Mail: <a href="mailto:reinigungsserviceamer@gmail.com">reinigungsserviceamer@gmail.com</a></p>
+
+            <h3>9. Sicherheit</h3>
+            <p>Wir treffen alle notwendigen technischen und organisatorischen Maßnahmen, um Ihre Daten vor Verlust, Missbrauch oder unbefugtem Zugriff zu schützen. Trotz dieser Schutzmaßnahmen ist jedoch keine Methode der Datenübertragung über das Internet oder der elektronischen Speicherung völlig sicher. Ein vollständiger Schutz kann daher nicht garantiert werden.</p>
+
+            <h3>10. Änderungen dieser Datenschutzerklärung</h3>
+            <p>Wir behalten uns vor, diese Datenschutzerklärung jederzeit anzupassen, um sie an aktuelle rechtliche Vorgaben oder Änderungen unserer Dienstleistungen anzupassen. Es gilt die jeweils aktuelle Version.</p>
+
+            <p>Stand: Februar 2025</p>
+        </div>
+    </div>
+
+    <!-- Modal für AGB -->
+    <div id="agbModal" class="modal">
+        <div class="modal-content modal-content-scroll">
+            <span class="close" onclick="closeAGBModal()">&times;</span>
+            <h2>Allgemeine Geschäftsbedingungen (AGB)</h2>
+            <h3>1. Geltungsbereich</h3>
+            <p>Die nachfolgenden Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge, die zwischen <strong>Reinigungsservice - Amer</strong>, vertreten durch <strong>Beder Amer</strong>, und seinen Kunden über die Webseite sowie bei telefonischen oder schriftlichen Anfragen abgeschlossen werden. Mit der Anfrage und/oder Beauftragung von Reinigungsleistungen erkennt der Kunde diese AGB an.</p>
+            
+            <h3>2. Leistungen</h3>
+            <p>Reinigungsservice - Amer bietet Reinigungsdienstleistungen für private und gewerbliche Kunden an, darunter:</p>
+            <ul>
+                <li>Unterhaltsreinigung</li>
+                <li>Treppenhausreinigung</li>
+                <li>Büroreinigung</li>
+                <li>Reinigung von Kitas und Schulen</li>
+                <li>Reinigung von Gastronomiebetrieben</li>
+            </ul>
+
+            <h3>3. Vertragsschluss</h3>
+            <p>Ein Vertrag kommt zustande, wenn der Kunde ein Angebot über die Webseite oder nach Anfrage per E-Mail oder Telefon erhält und dieses Angebot annimmt. Der Vertrag ist verbindlich, sobald eine Bestätigung des Auftrags durch Reinigungsservice - Amer erfolgt ist.</p>
+
+            <h3>4. Preise und Zahlungsbedingungen</h3>
+            <p>Alle angegebenen Preise verstehen sich zuzüglich der gesetzlichen Mehrwertsteuer. Die Zahlung erfolgt nach Rechnungsstellung per Banküberweisung oder in bar vor Ort, je nach Vereinbarung.</p>
+
+            <h3>5. Stornierung und Änderungen</h3>
+            <p>Eine Stornierung des Auftrags ist bis zu 24 Stunden vor dem vereinbarten Termin kostenfrei. Danach behalten wir uns vor, eine Stornogebühr in Höhe von 50% des vereinbarten Preises zu erheben.</p>
+
+            <h3>6. Haftung</h3>
+            <p>Wir haften nur für Schäden, die durch grobe Fahrlässigkeit oder Vorsatz verursacht wurden. Für Schäden, die durch höhere Gewalt oder unvorhergesehene Ereignisse entstehen, übernehmen wir keine Haftung.</p>
+
+            <h3>7. Datenschutz</h3>
+            <p>Alle personenbezogenen Daten werden ausschließlich zur Bearbeitung des Auftrags und der Kommunikation mit dem Kunden verwendet. Weitere Informationen entnehmen Sie bitte unserer Datenschutzerklärung.</p>
+
+            <h3>8. Schlussbestimmungen</h3>
+            <p>Es gilt das Recht der Bundesrepublik Deutschland. Gerichtsstand für alle Streitigkeiten ist der Sitz des Unternehmens. Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.</p>
+
+            <p>Stand: Februar 2025</p>
+        </div>
+    </div>
+
+    <script>
+        // Modal öffnen und schließen Funktionen
+        function openModal() {
+            document.getElementById("impressumModal").style.display = "block";
+        }
+        
+        function closeModal() {
+            document.getElementById("impressumModal").style.display = "none";
+        }
+
+        function openDatenschutzModal() {
+            document.getElementById("datenschutzModal").style.display = "block";
+        }
+
+        function closeDatenschutzModal() {
+            document.getElementById("datenschutzModal").style.display = "none";
+        }
+
+        function openAGBModal() {
+            document.getElementById("agbModal").style.display = "block";
+        }
+
+        function closeAGBModal() {
+            document.getElementById("agbModal").style.display = "none";
+        }
+    </script>
+</body>
+</html>

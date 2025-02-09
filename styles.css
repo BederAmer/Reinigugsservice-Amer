@@ -1,0 +1,305 @@
+/* Grundlegende Stile */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f8fb;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #005c4b;
+    color: white;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .logo img {
+    max-height: 130px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+header nav ul li {
+    margin-left: 30px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 12px 18px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Effekt: Unterstreichung mit Animation */
+header nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    width: 0;
+    height: 3px;
+    background-color: #ffcb05;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+header nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+header nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffcb05;
+    transform: scale(1.05);
+}
+
+/* Home Section */
+section#home {
+    background-color: #ffffff;
+    padding: 80px 40px;
+    text-align: center;
+    margin: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+section#home h1 {
+    color: #005c4b;
+    font-size: 42px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+section#home p {
+    color: #555;
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+section#home .cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: #ffcb05;
+    color: #005c4b;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+section#home .cta-button:hover {
+    background-color: #005c4b;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* Dienstleistungsbereich */
+.dienstleistungen {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+}
+
+.dienstleistung {
+    width: 30%;
+    background-color: white;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.dienstleistung:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.dienstleistung h2 {
+    color: #005c4b;
+    font-size: 26px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.dienstleistung p {
+    color: #777;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.dienstleistung img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Anfrageformular */
+section#anfrage {
+    background-color: #e8f4f3;
+    padding: 80px 30px;
+    margin: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+section#anfrage h1 {
+    color: #005c4b;
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+form input,
+form select,
+form textarea {
+    width: 80%;
+    margin-bottom: 20px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border: 1px solid #005c4b;
+    outline: none;
+}
+
+form button {
+    width: 80%;
+    padding: 15px;
+    background-color: #005c4b;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background-color: #003b2e;
+    transform: scale(1.05);
+}
+
+/* CTA-Button */
+.cta-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 30px;
+    background-color: #ffcb05;
+    color: #005c4b;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #005c4b;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    background-color: #003b2e;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    font-size: 18px;
+    border-top: 5px solid #ffcb05;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 20px 30px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    .dienstleistung {
+        width: 90%;
+        margin: 15px 0;
+    }
+
+    section#home h1 {
+        font-size: 32px;
+    }
+
+    section#home p {
+        font-size: 18px;
+    }
+
+    form input,
+    form select,
+    form textarea,
+    form button {
+        width: 100%;
+    }
+
+    section#anfrage h1 {
+        font-size: 28px;
+    }
+}
